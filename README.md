@@ -2222,6 +2222,7 @@ function updateNestedState(state, action) {
 }
 ```
 
+<br>
 Doing a shallow copy of the top level is not sufficient - the nestedState object should be copied as well.
 <br>
 
@@ -2274,24 +2275,28 @@ This means that we could also write the insert and remove functions like this:
 
 ```js
 function insertItem(array, action) {
-let newArray = array.slice();
-newArray.splice(action.index, 0, action.item);
-return newArray;
+  let newArray = array.slice();
+  newArray.splice(action.index, 0, action.item);
+  return newArray;
 }
 
 function removeItem(array, action) {
-let newArray = array.slice();
-newArray.splice(action.index, 1);
-return newArray;
-}
-The remove function could also be implemented as:
-
-function removeItem(array, action) {
-return array.filter( (item, index) => index !== action.index);
+  let newArray = array.slice();
+  newArray.splice(action.index, 1);
+  return newArray;
 }
 ```
 
-Updating an Item in an Array
+The remove function could also be implemented as:
+
+```js
+function removeItem(array, action) {
+  return array.filter((item, index) => index !== action.index);
+}
+```
+
+### Updating an Item in an Array
+
 Updating one item in an array can be accomplished by using Array.map, returning a new value for the item we want to update, and returning the existing values for all other items:
 
 ```js
@@ -2319,8 +2324,9 @@ Because writing immutable update code can become tedious, there are a number of 
 
 ```
 state = dotProp.set(state, `todos.${index}.complete`, true)
-Others, like immutability-helper (a fork of the now-deprecated React Immutability Helpers addon), use nested values and helper functions:
 ```
+
+Others, like immutability-helper (a fork of the now-deprecated React Immutability Helpers addon), use nested values and helper functions:
 
 ```
 var collection = [1, 2, {a: [12, 17, 15]}];
