@@ -47,9 +47,9 @@ class Counter extends Component {
           label="Decrement"
           clicked={this.props.onDecrementCounter}
         />
-        <CounterControl label="Add 5" clicked={this.props.onAddCounter} />
+        <CounterControl label="Add 10" clicked={this.props.onAddCounter} />
         <CounterControl
-          label="Subtract 5"
+          label="Subtract 15"
           clicked={this.props.onSubtractionCounter}
         />
         <hr />
@@ -75,7 +75,7 @@ class Counter extends Component {
 }
 
 /**
- * Our wy to configuring which kind of information we need
+ * Our way to configuring which kind of information we need
  * @param {*} state
  * @returns map()
  */
