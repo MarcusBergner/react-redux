@@ -86,6 +86,7 @@ You can find the most recent version of this guide [here](https://github.com/fac
   - [S3 and CloudFront](#s3-and-cloudfront)
   - [Surge](#surge)
 - [Advanced Configuration](#advanced-configuration)
+- [React-Redux](#react-redux)
 - [Troubleshooting](#troubleshooting)
   - [`npm start` doesn’t detect changes](#npm-start-doesnt-detect-changes)
   - [`npm test` hangs on macOS Sierra](#npm-test-hangs-on-macos-sierra)
