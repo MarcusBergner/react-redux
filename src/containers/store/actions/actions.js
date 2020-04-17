@@ -48,12 +48,20 @@ export const subtract = (value) => {
  * @store_result action creator function for synchronous code.
  * @returns actions.type: STORE_RESULT
  */
-export const storeResult = (res) => {
+export const saveResult = (res) => {
   return {
     type: STORE_RESULT,
     result: res,
   };
 };
+export const storeResult = (res) => {
+  return (dispatch) => {
+    setTimeout(() => {
+      dispatch(saveResult(res));
+    }, 2000);
+  };
+};
+
 /**
  * @delete_result action creator function for synchronous code.
  * @returns actions.type: DELETE_RESULT
