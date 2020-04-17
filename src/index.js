@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { createStore, combineReducers, applyMiddleware } from "redux";
+import { createStore, combineReducers, applyMiddleware, compose } from "redux";
+import thunk from "redux-thunk";
+
 import { Provider } from "react-redux";
 import "./index.css";
 import App from "./App";
@@ -32,6 +34,11 @@ const logger = (store) => {
 };
 
 /**
+ * @composeEnhancers connect our browser extension to the store running in our JavaScript code!
+ */
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+/**
  * createStore() -> takes a reducer as the input!
  * we're creating a store successfully with our own reducer
  * @NOTE: Redux is standalone, it is not connected to react,
@@ -40,7 +47,10 @@ const logger = (store) => {
  * @combineReducers is a function which takes a javaScript object mapping all our reducers to different
  * slices of our state as input and merges everything into one state and one reducer!
  */
-const store = createStore(rootReducer, applyMiddleware(logger));
+const store = createStore(
+  rootReducer,
+  composeEnhancers(applyMiddleware(logger, thunk))
+);
 ReactDOM.render(
   <Provider store={store}>
     <App />

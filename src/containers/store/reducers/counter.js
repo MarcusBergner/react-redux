@@ -1,4 +1,4 @@
-import * as actionTypes from "../actions";
+import * as actionTypes from "../actions/actions";
 const initialState = {
   counter: 0,
 };
@@ -25,28 +25,12 @@ const counterReducer = (state = initialState, action) => {
     case actionTypes.ADD:
       return {
         ...state,
-        counter: state.counter + action.value,
+        counter: state.counter + action.val,
       };
     case actionTypes.SUBTRACT:
       return {
         ...state,
-        counter: state.counter - action.value,
-      };
-    case actionTypes.STORE_RESULT:
-      return {
-        ...state,
-        results: state.results.concat({ id: new Date(), value: state.counter }),
-      };
-    case actionTypes.DELETE_RESULT:
-      // const id = 2;
-      // const newArray = [...state.results];
-      // newArray.results.splice(id, 1);
-      const updatedArray = state.results.filter(
-        (result) => result.id !== action.resultElId
-      );
-      return {
-        ...state,
-        results: updatedArray,
+        counter: state.counter - action.val,
       };
   }
 
