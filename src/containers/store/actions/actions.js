@@ -28,35 +28,39 @@ export const decrement = () => {
  * @add action creator function for synchronous code.
  * @returns actions.type: ADD
  */
-export const add = () => {
+export const add = (value) => {
   return {
     type: ADD,
+    val: value,
   };
 };
 /**
  * @subtract action creator function for synchronous code.
  * @returns actions.type: SUBTRACT
  */
-export const subtract = () => {
+export const subtract = (value) => {
   return {
     type: SUBTRACT,
+    val: value,
   };
 };
 /**
  * @store_result action creator function for synchronous code.
  * @returns actions.type: STORE_RESULT
  */
-export const store_result = () => {
+export const storeResult = (res) => {
   return {
     type: STORE_RESULT,
+    result: res,
   };
 };
 /**
  * @delete_result action creator function for synchronous code.
  * @returns actions.type: DELETE_RESULT
  */
-export const delete_result = () => {
+export const deleteResult = (resElId) => {
   return {
     type: DELETE_RESULT,
+    resultElId: resElId,
   };
 };
