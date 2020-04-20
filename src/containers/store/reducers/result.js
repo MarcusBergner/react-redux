@@ -4,6 +4,16 @@ import { updateObject } from "../utility";
 const initialState = {
   results: [],
 };
+/**
+ * The convention should be to use the action types as the name,
+ * though not in all caps but in camel case!
+ */
+const deleteResult = (state, action) => {
+  const updatedArray = state.results.filter(
+    (result) => result.id !== action.resultElId
+  );
+  return updateObject(state, { results: updatedArray });
+};
 
 /**
  * if that reducer doesn't handle that action type you dispatched,
@@ -27,10 +37,8 @@ const resultReducer = (state = initialState, action) => {
       // const id = 2;
       // const newArray = [...state.results];
       // newArray.results.splice(id, 1);
-      const updatedArray = state.results.filter(
-        (result) => result.id !== action.resultElId
-      );
-      return updateObject(state, { results: updatedArray });
+
+      return deleteResult(state, action);
     // return {
     //   ...state,
     //   results: updatedArray,
