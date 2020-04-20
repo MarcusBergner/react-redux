@@ -1,4 +1,4 @@
-import * as actionTypes from "./actionsTypes";
+import * as actionTypes from "./actionTypes";
 
 /**
  * @increment action creator function for synchronous code.

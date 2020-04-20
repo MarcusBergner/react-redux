@@ -1,4 +1,4 @@
-import * as actionTypes from "./actionsTypes";
+import * as actionTypes from "./actionTypes";
 
 /**
  * typically case for create asynchronous actions, with a synchronous action creator,
