@@ -1,5 +1,6 @@
 /**
- * that tiny improvement make our files even a bit leaner.
+ * that tiny improvement for bigger projects,
+ * that make our files even a bit leaner.
  */
 
 export { add, subtract, increment, decrement } from "./counter";
