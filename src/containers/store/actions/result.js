@@ -27,8 +27,8 @@ export const saveResult = (res) => {
 export const storeResult = (res) => {
   return (dispatch, getState) => {
     setTimeout(() => {
-      const oldCounter = getState().globalCounter.counter;
-      console.log("OldCounter: " + oldCounter);
+      // const oldCounter = getState().globalCounter.counter;
+      // console.log("OldCounter: " + oldCounter);
       dispatch(saveResult(res));
     }, 2000);
   };
